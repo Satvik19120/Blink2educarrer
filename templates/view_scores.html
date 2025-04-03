@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View Scores</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Scores for {{ quiz.title }}</h2>
+        <table>
+            <tr>
+                <th>Participant</th>
+                <th>Score</th>
+            </tr>
+            {% for attempt in attempts %}
+                <tr>
+                    <td>{{ attempt.user_id.username }}</td>
+                    <td>{{ attempt.score }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
