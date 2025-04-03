@@ -1,0 +1,23 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Blink2EduCarrer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Dashboard</h2>
+        <a href="{{ url_for('create_quiz') }}" class="btn">Create Quiz</a>
+        <h3>Your Quizzes:</h3>
+        <ul>
+            {% for quiz in quizzes %}
+                <li>{{ quiz.title }} - Code: {{ quiz.code }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+    </div>
+</body>
+</html>
