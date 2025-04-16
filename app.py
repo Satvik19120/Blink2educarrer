@@ -160,10 +160,6 @@ def view_scores(quiz_id):
     return render_template('view_scores.html', quiz=quiz, attempts=attempts)
 
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-    
 if __name__ == '__main__':
     db.create_all()
     app.run(debug=True)
