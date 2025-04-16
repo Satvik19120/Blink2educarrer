@@ -8,14 +8,13 @@ import os
 
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blink2educarrer.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "sqlite:///fallback.db")
 app.config['SECRET_KEY'] = 'your_secret_key'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
-app.app_context().push()
+
 # User Model
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
